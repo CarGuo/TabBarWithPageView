@@ -10,18 +10,18 @@ import 'package:tarbar_with_pageview/TabBarPageThree.dart';
  * on 2018/7/29.
  */
 
-class TabBarPageWidget extends StatefulWidget {
+class TabBarBottomPageWidget extends StatefulWidget {
   @override
-  _TabBarPageWidgetState createState() => _TabBarPageWidgetState();
+  _TabBarBottomPageWidgetState createState() => _TabBarBottomPageWidgetState();
 }
 
-class _TabBarPageWidgetState extends State<TabBarPageWidget> {
+class _TabBarBottomPageWidgetState extends State<TabBarBottomPageWidget> {
   final PageController topPageControl = new PageController();
 
   @override
   Widget build(BuildContext context) {
     return new GSYTabBarWidget(
-        type: GSYTabBarWidget.TOP_TAB,
+        type: GSYTabBarWidget.BOTTOM_TAB,
         tabItems: [
           new FlatButton(
               padding: EdgeInsets.all(0.0),
@@ -67,6 +67,6 @@ class _TabBarPageWidgetState extends State<TabBarPageWidget> {
         topPageControl: topPageControl,
         backgroundColor: Colors.lightBlue,
         indicatorColor: Colors.white,
-        title: new Text("Test"));
+        title: new Text("Test2"));
   }
 }
