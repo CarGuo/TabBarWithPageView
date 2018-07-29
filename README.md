@@ -1,8 +1,7 @@
-# tarbar_with_pageview
+# tarbarWithPageview
 
 A new Flutter project.
 
-## Getting Started
+Demo and fix Tabbar And PageView with Flutter，Flutter SDK v0.5.7+ .
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+clone flutter sdk local，`git checkout v0.5.7` and run。
