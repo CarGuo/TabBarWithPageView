@@ -20,18 +20,23 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Title"),
+      ),
       body: new Column(
         children: <Widget>[
           new FlatButton(
+              color: Colors.blue,
               onPressed: () {
                 Navigator.push(context, new MaterialPageRoute(builder: (context) => new TabBarPageWidget()));
               },
-              child: new Text("TopTab")),
+              child: new Text("Top Tab")),
           new FlatButton(
+              color: Colors.blue,
               onPressed: () {
                 Navigator.push(context, new MaterialPageRoute(builder: (context) => new TabBarBottomPageWidget()));
               },
-              child: new Text("BottomTab")),
+              child: new Text("Bottom Tab")),
         ],
       ),
     );
