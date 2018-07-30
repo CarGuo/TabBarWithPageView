@@ -18,52 +18,51 @@ class TabBarPageWidget extends StatefulWidget {
 class _TabBarPageWidgetState extends State<TabBarPageWidget> {
   final PageController topPageControl = new PageController();
 
+  final List<String> tab = ["111", "222", "333", "444", "555", "666", "777", "888", "999", "1010", "1111", "1212", "1313", "1414", "!515", "1616"];
+
+  _renderTab() {
+    List<Widget> list = new List();
+    for (int i = 0; i < tab.length; i++) {
+      list.add(new FlatButton(onPressed: () {
+        topPageControl.jumpTo(MediaQuery
+            .of(context)
+            .size
+            .width * i);
+      }, child: new Text(
+        tab[i],
+        maxLines: 1,
+      )));
+    }
+    return list;
+  }
+
+  _renderPage() {
+    return  [
+      new TabBarPageFirst(),
+      new TabBarPageSecond(),
+      new TabBarPageThree(),
+      new TabBarPageFour(),
+      new TabBarPageFirst(),
+      new TabBarPageSecond(),
+      new TabBarPageThree(),
+      new TabBarPageFour(),
+      new TabBarPageFirst(),
+      new TabBarPageSecond(),
+      new TabBarPageThree(),
+      new TabBarPageFour(),
+      new TabBarPageFirst(),
+      new TabBarPageSecond(),
+      new TabBarPageThree(),
+      new TabBarPageFour(),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return new GSYTabBarWidget(
         type: GSYTabBarWidget.TOP_TAB,
-        tabItems: [
-          new FlatButton(
-              padding: EdgeInsets.all(0.0),
-              onPressed: () {
-                topPageControl.jumpTo(0.0);
-              },
-              child: new Text(
-                "1111",
-                maxLines: 1,
-              )),
-          new FlatButton(
-              padding: EdgeInsets.all(0.0),
-              onPressed: () {
-                topPageControl.jumpTo(MediaQuery.of(context).size.width);
-              },
-              child: new Text(
-                "2222",
-                maxLines: 1,
-              )),
-          new FlatButton(
-              padding: EdgeInsets.all(0.0),
-              onPressed: () {
-                topPageControl.jumpTo(MediaQuery.of(context).size.width * 2);
-              },
-              child: new Text(
-                "3333",
-                maxLines: 1,
-              )),
-          new FlatButton(
-            padding: EdgeInsets.all(0.0),
-            onPressed: () {
-              topPageControl.jumpTo(MediaQuery.of(context).size.width * 3);
-            },
-            child: new Text("444"),
-          )
-        ],
-        tabViews: [
-          new TabBarPageFirst(),
-          new TabBarPageSecond(),
-          new TabBarPageThree(),
-          new TabBarPageFour(),
-        ],
+        tabItems: _renderTab(),
+        tabViews: _renderPage(),
         topPageControl: topPageControl,
         backgroundColor: Colors.lightBlue,
         indicatorColor: Colors.white,

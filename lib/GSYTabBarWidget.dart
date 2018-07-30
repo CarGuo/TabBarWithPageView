@@ -91,6 +91,7 @@ class _GSYTabBarState extends State<GSYTabBarWidget> with SingleTickerProviderSt
           backgroundColor: _backgroundColor,
           title: _title,
           bottom: new TabBar(
+            isScrollable: true,
             controller: _tabController,
             tabs: _tabItems,
             indicatorColor: _indicatorColor,
