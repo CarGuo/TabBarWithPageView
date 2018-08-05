@@ -100,6 +100,7 @@ class _GSYTabBarState extends State<GSYTabBarWidget> with SingleTickerProviderSt
           title: _title,
           ///tabBar控件
           bottom: new TabBar(
+            isScrollable: true,
             ///必须有的控制器，与pageView的控制器同步
             controller: _tabController,
             ///每一个tab item，是一个List<Widget>
