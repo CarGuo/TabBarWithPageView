@@ -18,55 +18,45 @@ class TabBarBottomPageWidget extends StatefulWidget {
 class _TabBarBottomPageWidgetState extends State<TabBarBottomPageWidget> {
   final PageController topPageControl = new PageController();
 
+
+  final List<String> tab = ["动态", "趋势", "我的"];
+
+  _renderTab() {
+    List<Widget> list = new List();
+    for (int i = 0; i < tab.length; i++) {
+      list.add(new FlatButton(onPressed: () {
+        topPageControl.jumpTo(MediaQuery
+            .of(context)
+            .size
+            .width * i);
+      }, child: new Text(
+        tab[i],
+        maxLines: 1,
+      )));
+    }
+    return list;
+  }
+
+  _renderPage() {
+    return [
+      new TabBarPageFirst(),
+      new TabBarPageSecond(),
+      new TabBarPageThree(),
+    ];
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return new GSYTabBarWidget(
         type: GSYTabBarWidget.BOTTOM_TAB,
-        tabItems: [
-          new FlatButton(
-              padding: EdgeInsets.all(0.0),
-              onPressed: () {
-                topPageControl.jumpTo(0.0);
-              },
-              child: new Text(
-                "1111",
-                maxLines: 1,
-              )),
-          new FlatButton(
-              padding: EdgeInsets.all(0.0),
-              onPressed: () {
-                topPageControl.jumpTo(MediaQuery.of(context).size.width);
-              },
-              child: new Text(
-                "2222",
-                maxLines: 1,
-              )),
-          new FlatButton(
-              padding: EdgeInsets.all(0.0),
-              onPressed: () {
-                topPageControl.jumpTo(MediaQuery.of(context).size.width * 2);
-              },
-              child: new Text(
-                "3333",
-                maxLines: 1,
-              )),
-          new FlatButton(
-            padding: EdgeInsets.all(0.0),
-            onPressed: () {
-              topPageControl.jumpTo(MediaQuery.of(context).size.width * 3);
-            },
-            child: new Text("444"),
-          )
-        ],
-        tabViews: [
-          new TabBarPageFirst(),
-          new TabBarPageSecond(),
-          new TabBarPageThree(),
-          new TabBarPageFour(),
-        ],
+        ///渲染tab
+        tabItems: _renderTab(),
+        ///渲染页面
+        tabViews: _renderPage(),
         topPageControl: topPageControl,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.black45,
         indicatorColor: Colors.white,
-        title: new Text("Test2"));
+        title: new Text("GSYGithubFlutter"));
   }
 }
